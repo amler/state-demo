@@ -6,10 +6,21 @@ export default function EmojiClicker () {
     const addEmoji = () => {
         setEmojis((oldEmojis) => [...oldEmojis, {id: uuidv4(), emoji: '🎃'}])
     };
+    const deleteEmoji = (id) => {
+        setEmojis(previousEmojis => {
+            return previousEmojis.filter(e => e.id !== id)
+        })
+    };
     return (
         <div>
             {emojis.map((e) => (
-                <span key={e.id} style={{fontSize: '4rem'}}>{e.emoji}</span>
+                <span 
+                    onClick={() => deleteEmoji(e.id)} 
+                    key={e.id} 
+                    style={{fontSize: '4rem'}}
+                >
+                    {e.emoji}
+                </span>
             ))}
             <button onClick={addEmoji}>Add Emoji</button>
         </div>
