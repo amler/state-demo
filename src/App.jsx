@@ -3,6 +3,7 @@ import './App.css';
 import Counter from './Counter';
 import Prueba from './Prueba';
 import ScoreKeeper from './Scorekeeper';
+import EmojiClicker from './Emojiclicker';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +13,8 @@ function App() {
       <h1>React State Demo</h1>
       {/* <Counter /> */}
       {/* <Prueba /> */}
-      <ScoreKeeper />
+      {/* <ScoreKeeper /> */}
+      <EmojiClicker />
     </>
   )
 }
