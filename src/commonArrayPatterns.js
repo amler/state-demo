@@ -1,3 +1,5 @@
+https://react.dev/learn/updating-arrays-in-state
+
 // common Patterns for updating arrays in state
 const shoppingCart = [
     {id: 1, product: "turkey", price: 4},
