@@ -13,8 +13,8 @@ function App() {
       <h1>React State Demo</h1>
       {/* <Counter /> */}
       {/* <Prueba /> */}
-      {/* <ScoreKeeper /> */}
-      <EmojiClicker />
+      <ScoreKeeper numPlayers={4} target={3} />
+      {/* <EmojiClicker /> */}
     </>
   )
 }
