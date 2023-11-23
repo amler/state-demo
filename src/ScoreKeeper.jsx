@@ -2,8 +2,24 @@ import { useState } from "react";
 
 // somewhat more complex logic with state
 function ScoreKeeper ({numPlayers=3, target=5}) {
+    
     const [scores, setScores] = useState(new Array(numPlayers).fill(0));
+    const incrementScore = (idx) => {
+        setScores(prevScores => {
+            // intuitive way to do this:
+            // const copy = [...prevScores];
+            // copy[idx] += 1;
+            // return copy;
+            return prevScores.map((score, i) => {
+                if (i === idx) return score + 1;
+                return score;
+            })
+        })
+    }
 
+    const reset = () => {
+        setScores(new Array(numPlayers).fill(0))
+    }
     return (
         <div>
             <h2>Score Keeper</h2>
@@ -12,14 +28,13 @@ function ScoreKeeper ({numPlayers=3, target=5}) {
                     return  (
                         <li key={idx}>
                             Player{idx + 1}: {score}
+                            {/* bake in the corect index */}
+                            <button onClick={() => incrementScore(idx)}>+1</button>
                         </li>
                     )
                 })}
             </ul>
-            {/* <p>Player 1: {scores.p1Score}</p>
-            <p>Player 2: {scores.p2Score}</p>
-            <button onClick={increaseP1Score}>+1 Player 1</button>
-            <button onClick={increaseP2Score}>+1 Player 2</button> */}
+            <button onClick={reset}>Reset</button>
         </div>
     );
 }
